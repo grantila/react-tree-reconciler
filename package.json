@@ -1,0 +1,78 @@
+{
+  "name": "react-tree-reconciler",
+  "version": "0.0.0-development",
+  "description": "Simpler API for React reconcilers",
+  "author": "Gustaf Räntilä",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grantila/react-tree-reconciler/issues"
+  },
+  "homepage": "https://github.com/grantila/react-tree-reconciler#readme",
+  "engines": {
+    "node": ">=12"
+  },
+  "main": "./lib/index.ts",
+  "publishConfig": {
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.prod.json",
+    "test": "yarn jest",
+    "cz": "git-cz"
+  },
+  "pre-commit": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grantila/react-tree-reconciler"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.4",
+    "@types/react": "^17.0.11",
+    "@types/react-reconciler": "^0.26.1",
+    "already": "^2.1.0",
+    "cz-conventional-changelog": "^3.1.0",
+    "jest": "^27.0.6",
+    "pre-commit": "^1.2.2",
+    "react": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.2.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "react-reconciler": "^0.26.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "<rootDir>/test/**/*.test.tsx"
+    ],
+    "collectCoverageFrom": [
+      "<rootDir>/lib/**"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/__snapshots__/",
+      "/test/"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "html"
+    ]
+  }
+}

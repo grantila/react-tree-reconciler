@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"allowJs": false,
+		"declaration": true,
+		"sourceMap": true,
+		"lib": [ "ES2019", "DOM" ],
+		"types": [
+			"node",
+			"jest"
+		],
+		"esModuleInterop": true,
+		"jsx": "react-jsx",
+		"noEmit": true,
+		"target": "ES2019",
+		"module": "CommonJS",
+		"moduleResolution": "node",
+		"noImplicitAny": true,
+		"noUnusedLocals": true,
+		"pretty": true,
+		"strict": true,
+		"alwaysStrict": true,
+	},
+	"include": [
+		"lib",
+		"test"
+	]
+}
