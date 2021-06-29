@@ -1,4 +1,4 @@
-import { makeComponent } from '../'
+import { makeComponent } from '../lib'
 
 
 export interface TreeItemProps

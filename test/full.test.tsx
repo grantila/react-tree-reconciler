@@ -6,7 +6,7 @@ import {
 	setupReconciler,
 	setupElements,
 	ReactTreeText,
-} from "../"
+} from "../lib"
 import { TreeItemProps, TreeItem } from "./components"
 
 
