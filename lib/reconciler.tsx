@@ -363,6 +363,7 @@ function makeHostConfig< Context >( opts: ReactTreeSetup< Context > )
 			return parentHostContext;
 		},
 
+		// istanbul ignore next
 		getPublicInstance( instance )
 		{
 			debug( 'getPublicInstance', { instance } );
@@ -384,17 +385,20 @@ function makeHostConfig< Context >( opts: ReactTreeSetup< Context > )
 			container.onResetAfterCommit?.( );
 		},
 
+		// istanbul ignore next
 		preparePortalMount( containerInfo )
 		{
 			debug( 'preparePortalMount', { containerInfo } );
 			notImplemented( "preparePortalMount" );
 		},
 
+		// istanbul ignore next
 		now( )
 		{
 			return performanceNow( );
 		},
 
+		// istanbul ignore next
 		scheduleTimeout( fn, delay )
 		{
 			debug( 'scheduleTimeout', { fn, delay } );
@@ -402,6 +406,7 @@ function makeHostConfig< Context >( opts: ReactTreeSetup< Context > )
 			return setTimeout( fn, delay );
 		},
 
+		// istanbul ignore next
 		cancelTimeout( id )
 		{
 			debug( 'cancelTimeout', { id } );
@@ -477,6 +482,7 @@ function makeHostConfig< Context >( opts: ReactTreeSetup< Context > )
 			notImplemented( "commitTextUpdate" );
 		},
 
+		// istanbul ignore next
 		commitMount( instance, type, props, internalInstanceHandle )
 		{
 			debug(
