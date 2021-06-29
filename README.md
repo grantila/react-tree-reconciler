@@ -70,10 +70,10 @@ The `ReactTreeText` is a class which only has the useful `text` property being t
 The `ReactTreeNode< Props, Context >` has the `type` property set to `"node"`, and then has the following properties:
 
  * `elementType: string`<br/>This is the React name of the component, as provided to `makeComponent()`
- * `props: Props`<br/>Raw react props
+ * `props: Props`<br/>Raw React props
  * `context: Context`<br/>Optional context
 
-It also has the following no-op function which can be overridden:
+It also has the following no-op functions which can be overridden:
 
  * `onChildrenChanged( )`<br/>Called when the children change (added, removed, replaced)
  * `onFinalizeChildren( )`<br/>Called the first time the children are provided
@@ -103,7 +103,7 @@ You can the provide `MyFooImpl.make` as the constructor to instances of the Reac
 
 ### Context
 
-When creating a reconciler and a tree of components, `react-tree-reconciler` allows you to provide a completely custom "context". A type safe piece of data you control entirely yourself. This can contain necessary information about the tree as a whole and connections to the rest of your app.
+When creating a reconciler and a tree of components, `react-tree-reconciler` allows you to provide a custom "context". A type safe piece of data you control entirely yourself. This can contain necessary information about the tree as a whole and connections to the rest of your app.
 
 
 ### Connection
@@ -144,7 +144,7 @@ const { rootContainer, render } = setupReconciler(
 render( );
 ```
 
-The `rootContainer` is an object similar to your subclassed tree _nodes_, and has a function `getChildren( )` which can be used to iterate the the children of this root. From there on, you can `getChildren( )` on each sub-node, as long as it's a subclas of `ReactTreeNode` and not `ReactTreeText`.
+The `rootContainer` is an object similar to your subclassed tree _nodes_, and has a function `getChildren( )` which can be used to iterate the the children of this root. From there on, you can iterate by accessing the `children` property on each sub-node, as long as it's a subclas of `ReactTreeNode` and not `ReactTreeText`.
 
 You can provide a custom root container, as long as it extends `ReactTreeNode` and implements `ContainerNode`:
 

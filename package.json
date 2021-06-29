@@ -31,7 +31,11 @@
     "type": "git",
     "url": "https://github.com/grantila/react-tree-reconciler"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "reconciler",
+    "tree"
+  ],
   "devDependencies": {
     "@types/jest": "^26.0.23",
     "@types/node": "^15.12.4",
