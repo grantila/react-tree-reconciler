@@ -1,11 +1,12 @@
 import React from 'react'
+import type { ComponentType } from 'react'
 
 import { makeElementName } from './custom-react'
 import { arrayify } from './utils'
 
 
 export type ComponentDefinition< Name extends string, Props extends { } > =
-	{ [ K in Name ]: React.ComponentType< Props >; };
+	{ [ K in Name ]: ComponentType< Props >; };
 
 export function makeComponent< Props >( )
 : < Name extends string >( name: Name ) => ComponentDefinition< Name, Props >
