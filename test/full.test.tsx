@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { delay } from "already";
+import React, { useEffect, useState } from "react"
+import { delay } from "already"
 
-import { ReactTreeNode, setupReconciler, setupElements } from "../";
-import { TreeItemProps, TreeItem } from "./components";
+import {
+	ReactTreeNode,
+	setupReconciler,
+	setupElements,
+	ReactTreeText,
+} from "../"
+import { TreeItemProps, TreeItem } from "./components"
 
 
 interface Context
@@ -27,25 +32,25 @@ class MyTreeItem extends ReactTreeNode< TreeItemProps, Context >
 		return this.props.description;
 	}
 
-	public getChildrenItems( )
+	public getChildrenJSON( )
 	{
 		return this.children
-			.filter( ( child ): child is MyTreeItem =>
+			.map( child =>
 				child instanceof MyTreeItem
+				? child.toJSON( )
+				: { text: ( child as ReactTreeText ).text }
 			);
 	}
 
 	public toJSON( ): any
 	{
 		const description = this.getDescription( );
-		const children = this.getChildrenItems( );
+		const children = this.getChildrenJSON( );
 
 		return {
 			title: this.getTitle( ),
 			...( description && { description } ),
-			...( children.length &&
-				{ children: children.map( child => child.toJSON( ) ) }
-			),
+			...( children.length && { children } ),
 		};
 	}
 }
@@ -102,7 +107,7 @@ function Inner( props: React.PropsWithChildren< { } > )
 function App( )
 {
 	return <>
-		<TreeItem title="first" description="first desc" />
+		<TreeItem title="first" description="first desc">some text</TreeItem>
 		<TreeItem title="middle" description="middle desc">
 			<Inner>
 				<TreeItem title="inner child" description="inner child desc" />
@@ -138,6 +143,7 @@ describe( 'react-tree-reconciler', ( ) =>
 			{
 				title: 'first',
 				description: 'first desc',
+				children: [ { text: 'some text' } ],
 			},
 			{
 				title: 'middle',
@@ -170,6 +176,7 @@ describe( 'react-tree-reconciler', ( ) =>
 			{
 				title: 'first',
 				description: 'first desc',
+				children: [ { text: 'some text' } ],
 			},
 			{
 				title: 'middle',
@@ -202,6 +209,7 @@ describe( 'react-tree-reconciler', ( ) =>
 			{
 				title: 'first',
 				description: 'first desc',
+				children: [ { text: 'some text' } ],
 			},
 			{
 				title: 'middle',
