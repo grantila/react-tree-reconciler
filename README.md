@@ -57,6 +57,8 @@ function ManyFoos( )
 }
 ```
 
+To create a component which shouldn't be able to have children, use `makeVoidComponent`.
+
 
 ## Connecting a React component with a class
 

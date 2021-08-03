@@ -1,12 +1,21 @@
 import React from 'react'
-import type { ComponentType } from 'react'
+import type {
+	ComponentType,
+	ComponentClass,
+	VoidFunctionComponent,
+} from 'react'
 
 import { makeElementName } from './custom-react'
 import { arrayify } from './utils'
 
+export type VoidComponentType< Props extends { } > =
+	ComponentClass< Props > | VoidFunctionComponent< Props >;
 
 export type ComponentDefinition< Name extends string, Props extends { } > =
 	{ [ K in Name ]: ComponentType< Props >; };
+
+export type VoidComponentDefinition< Name extends string, Props extends { } > =
+	{ [ K in Name ]: VoidComponentType< Props >; };
 
 export function makeComponent< Props >( )
 : < Name extends string >( name: Name ) => ComponentDefinition< Name, Props >
@@ -41,4 +50,11 @@ export function makeComponent< Props >( )
 
 		return { [ name ]: Component } as ComponentDefinition< Name, Props >;
 	};
+}
+
+export function makeVoidComponent< Props >( )
+: < Name extends string >( name: Name ) =>
+	VoidComponentDefinition< Name, Props >
+{
+	return makeComponent< Props >( );
 }

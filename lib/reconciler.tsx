@@ -416,13 +416,6 @@ function makeHostConfig< Context >( opts: ReactTreeSetup< Context > )
 
 		noTimeout: -1,
 
-		queueMicrotask( fn )
-		{
-			debug( 'queueMicrotask', { fn } );
-
-			setImmediate( fn );
-		},
-
 		isPrimaryRenderer: true,
 
 		appendChild( parentInstance, child )
