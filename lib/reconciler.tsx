@@ -12,7 +12,7 @@ interface ReactTreeRawItem
 	clear( ): void;
 }
 
-abstract class ReactTreeItem implements ReactTreeRawItem
+export abstract class ReactTreeItem implements ReactTreeRawItem
 {
 	abstract readonly type: ReactTreeRawItem[ 'type' ];
 
