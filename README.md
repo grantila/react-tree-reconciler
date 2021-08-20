@@ -59,6 +59,8 @@ function ManyFoos( )
 
 To create a component which shouldn't be able to have children, use `makeVoidComponent`.
 
+You can import the frontend-parts (component construction logic) from `react-tree-reconciler/components` to not get the potential dependency issues when importing the whole package.
+
 
 ## Connecting a React component with a class
 

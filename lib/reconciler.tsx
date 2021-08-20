@@ -2,7 +2,7 @@ import React from 'react'
 import Reconciler, { HostConfig } from 'react-reconciler'
 
 import { isCustomElementName } from './custom-react'
-import { performanceNow } from './utils'
+import { performanceNow } from './performance'
 
 
 interface ReactTreeRawItem
